@@ -27,6 +27,10 @@ def handle_api():
             marks.append(students[name])
         return jsonify(marks=marks)
 
+@app.route('/api', methods=['GET', 'OPTIONS'])
+def Home():
+    return jsonify(message="Welcome to the API")
+
 @app.after_request
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
